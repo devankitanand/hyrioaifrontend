@@ -28,7 +28,12 @@ import { BsSend } from "react-icons/bs";
 import { FaUnderline } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { IoSend } from "react-icons/io5";
-import { IoMdAdd } from "react-icons/io"; // Import the plus icon
+import { IoMdAdd } from "react-icons/io"; 
+import { RxMixerVertical } from "react-icons/rx";
+import { BsFillPlusCircleFill } from "react-icons/bs";
+import { BsInfoCircleFill } from "react-icons/bs";
+import { AiFillThunderbolt } from "react-icons/ai";
+import { GrBold } from "react-icons/gr";
 
 function App() {
   const [content, setContent] = useState('');
@@ -92,7 +97,18 @@ function App() {
             <div className='options'><BsPostcardFill />&nbsp;&nbsp;&nbsp;Posts for You</div>
             <div className='options'><RiCalendarScheduleFill />&nbsp;&nbsp;&nbsp;Schedule</div>
           </div>
-          <div></div>
+          <div>
+            <div className='options'><RxMixerVertical />&nbsp;&nbsp;&nbsp;Preferences</div>
+            <div className='options'><BsFillPlusCircleFill />&nbsp;&nbsp;&nbsp;Feature request</div>
+            <div className='wg'>
+              <div className='flex wgd'><div className='flex'>Words generated &nbsp;<BsInfoCircleFill /></div><div>1.25k/50k</div></div>
+              <div className='flbr'><div className='hbr'></div></div>
+              <div className='mu'>Monthly uses resets in 29 days</div>
+              <div className='up'><AiFillThunderbolt size={15}/>&nbsp;Upgrade Plan</div>
+            </div>
+          </div>
+          
+          
         </div>
         <div className='mid'>
           <div className='header'>
@@ -109,6 +125,7 @@ function App() {
                 <MdFormatItalic size={20} />
                 <TbUnlink size={20} />
                 <MdEmojiEmotions size={20} />
+                <div className='ai'><BsStars /></div>
               </div>
               <div className='ac2'>
                 <IoIosCopy size={20} />
@@ -126,8 +143,10 @@ function App() {
               />
               {showTooltip && (
                 <div className='tooltip'>
-                  <div onClick={handleUnderline}><FaUnderline /></div>
-                  <div onClick={() => setShowTooltip(false)}><IoClose /></div>
+                  <div><GrBold size={20} className='hover'/></div>
+                  <div><MdFormatItalic size={20} className='hover'/></div>
+                  <div onClick={handleUnderline}><FaUnderline size={15} className='hover'/></div>
+                  <div onClick={() => setShowTooltip(false)}><IoClose className='hover' size={20} color='rgb(121, 121, 121)'/></div>
                 </div>
               )}
               <div className='plus-icon' onClick={() => insertHeadline(content.length)}>
@@ -148,7 +167,7 @@ function App() {
           </div>
         </div>
         <div className='right'>
-          <div className='header'>
+          <div className='header rr'>
             <div className='pp'>Post Preview</div>
             <div className='flex dvs'>Devices:
               <div className={selected === 0 ? 'sd' : 'icon'} onClick={() => handleClick(0)}><FaMobileAlt size={20} /></div>
@@ -174,7 +193,7 @@ function App() {
                 <div className="post-content" dangerouslySetInnerHTML={{ __html: content }} />
                 <div className="post-footer">
                   <div className="post-stats">
-                    <div><span>34 Likes</span></div>
+                    <div className='flex'><span className='emojis'>😊👌😍❤️</span><span>&nbsp;34</span></div>
                     <div>
                       <span>55 Comments .</span>
                       <span>&nbsp;23 Shares</span>
